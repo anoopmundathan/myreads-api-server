@@ -1,0 +1,34 @@
+{
+  "name": "myreads-api-server",
+  "version": "1.0.0",
+  "description": "API server for MyReads app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anoopmundathan/myreads-api-server.git"
+  },
+  "keywords": [
+    "express",
+    "api",
+    "book",
+    "reads"
+  ],
+  "author": "Anoop Mundathan <anoop.mundathan@gmail.com> (http://anoopmundathan.me/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anoopmundathan/myreads-api-server/issues"
+  },
+  "homepage": "https://github.com/anoopmundathan/myreads-api-server#readme",
+  "dependencies": {
+    "body-parser": "1.17.2",
+    "clone": "2.1.1",
+    "cors": "2.8.4",
+    "express": "4.15.3",
+    "invariant": "2.2.2",
+    "isomorphic-fetch": "2.2.1",
+    "morgan": "1.8.2"
+  }
+}

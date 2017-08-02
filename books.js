@@ -1,8 +1,9 @@
 require('isomorphic-fetch')
 const invariant = require('invariant')
 const clone = require('clone')
+const config = require('./config')
 
-const apiKey = process.env.GOOGLE_BOOKS_API_KEY
+const apiKey = config.apiKey
 
 invariant(
   apiKey,
@@ -47,20 +48,18 @@ const createBook = (item) => Object.assign({}, item.volumeInfo, {
 
 const get = (token, id) =>
   fetch(`${api}/volumes/${id}?key=${apiKey}`)
-    .then(res => res.json())
+    .then(res => {
+        res.json()
+    })
     .then(createBook)
     .then(addShelf(token))
 
 const getAll = (token) => {
   console.log("Getting all books.")
   const data = getData(token)
-  console.log(data);
   const bookIds = Object.keys(data).reduce((memo, shelf) => (
     memo.concat(data[shelf])
   ), [])
-
-  console.log(bookIds)
-
   return Promise.all(bookIds.map(bookId => get(token, bookId)))
 }
 
